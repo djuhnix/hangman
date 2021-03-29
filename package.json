@@ -1,9 +1,11 @@
 {
-  "name": "hangman",
+  "name": "djuhnix-hangman",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Hangman paper and pencil guessing game in a node-js module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
+    "prepublish": "npm run build",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
