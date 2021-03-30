@@ -18,7 +18,6 @@ class Data {
         this._chances = chances;
         this._progress = initialiseHangmanWordSlot(word.length, '_');
         this._startTime = Date.now();
-
     }
 
     get startTime() {

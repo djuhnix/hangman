@@ -30,8 +30,23 @@ class Player {
     }
 
     saveScore(sessionId: number, points: number) {
-        //TODO search for session score in BST
-        this.score.addNode(new Score(sessionId, points));
+        let score = this.score.search(
+            data => {
+                if (data.value === sessionId)
+                    return 0;
+                else if (data.value < sessionId)
+                    return -1;
+                else if (data.value > sessionId)
+                    return 1;
+                else
+                    throw new Error("Invalid data argument in comparator");
+            }
+        )
+        if (score instanceof Score) {
+            score.addPoints(points)
+        } else {
+            this.score.addNode(new Score(sessionId, points));
+        }
     }
 }
 

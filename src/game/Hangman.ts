@@ -41,7 +41,7 @@ class Hangman {
                 this.data.progress = hangmanWord.split('');
             }
 
-            return false
+            return false;
         } else {
             const indicesFound = charPos(hangmanWord, letter)
             let self = this;
@@ -55,36 +55,35 @@ class Hangman {
                 }
             })
 
-            return true
+            return true;
         }
     }
 
     nextTurn (playerId: number, letter: string) {
-        const singleAlphaRegex = /^[a-zA-Z]$/
+        const singleAlphaRegex = /^[a-zA-Z]$/;
 
         if (!singleAlphaRegex.test(letter)) {
-            return this.getDetails()
+            return this.getDetails();
         }
 
-        if (this.guessLetter(letter)) {
-            if (this.data.players)
-                this.data.players[playerId].saveScore(this.sessionId, 1);
+        if (this.guessLetter(letter) && this.data.players) {
+            this.data.players[playerId].saveScore(this.sessionId, 1);
         }
-        return this.getDetails()
+        return this.getDetails();
     }
 
     getGameState () {
         const chances = this.data.chances;
         const progress = this.data.progress;
         if (progress.indexOf('_') <= -1 && chances >= 0) {
-            this._gameState = 1
-            this.data.duration = Date.now() - this.data.startTime
+            this._gameState = 1;
+            this.data.duration = Date.now() - this.data.startTime;
         }
         if (chances <= 0) {
-            this._gameState = 0
+            this._gameState = 0;
         }
 
-        return this._gameState
+        return this._gameState;
     }
 
     getDetails () {

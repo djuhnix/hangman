@@ -165,27 +165,43 @@ class BinarySearchTree<T> {
     getMaximum(): T | undefined {
         return this.root ? this.root.maximum() : undefined;
     }
+    /*
+    updateValue(value: T, propertyName: string, newValue: any) {
+        let node = this.search(
+            data => {
+                if (data.value === value)
+                    return 0;
+                else if ()
+            }
+        )
+    }*/
 
-    /*TODO search in binary tree
-    search(comparator: (data: T) => boolean): T {
-        this.BFT();
-        let queue = [this.root];
-        let found: TreeNode = null;
-        while (queue.length > 0) {
-            let currentNode = queue.shift();
-            if (currentNode.value === node) {
-                found = currentNode;
-                break;
-            }
-            if (currentNode.left) {
-                queue.push(currentNode.left);
-            }
-            if (currentNode.right) {
-                queue.push(currentNode.right);
+    /**
+     *
+     * @param comparator a callback that compare node and set search condition,
+     *        1 -> greater than
+     *        0 -> equal
+     *        -1 -> less than
+     * @param nodeStart
+     */
+    search(comparator: (data: TreeNode<T>) => 1 | 0 | -1, nodeStart: TreeNode<T> | null = null): TreeNode<T> | undefined {
+        let current = nodeStart === null ? this.root : nodeStart;
+        if (current) {
+            switch (comparator(current)) {
+                case 1:
+                    if (!current.right)
+                        return undefined;
+                    return this.search(comparator, current.right);
+                case 0:
+                    return current;
+                case -1:
+                    if (!current.left)
+                        return undefined;
+                    return this.search(comparator, current.left);
             }
         }
-        return found;
-    }*/
+        return current;
+    }
 }
 
 export default BinarySearchTree;

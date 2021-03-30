@@ -1,31 +1,31 @@
 import {TreeNode} from "../utils/nodes";
 
 class Score extends TreeNode<number> {
-    private readonly _sessionId: number;
+    private _points: number;
 
     constructor(sessionId: number, points: number) {
-        super(points);
-        this._sessionId = sessionId;
+        super(sessionId);
+        this._points = points;
     }
 
-    get sessionId() {
-        return this._sessionId;
+    get points() {
+        return this._points;
     }
 
     addPoints(points: number) {
-        this.value += points;
+        this._points += points;
     }
 
-    equal(target: TreeNode<number>): boolean {
-        return this.value == target.value;
+    equal(target: Score): boolean {
+        return this.points == target.points;
     }
 
-    isGreaterThan(target: TreeNode<number>): boolean {
-        return this.value > target.value;
+    isGreaterThan(target: Score): boolean {
+        return this.points > target.points;
     }
 
-    isLessThan(target: TreeNode<number>): boolean {
-        return this.value < target.value;
+    isLessThan(target: Score): boolean {
+        return this.points < target.points;
     }
 }
 
