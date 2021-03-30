@@ -166,8 +166,26 @@ class BinarySearchTree<T> {
         return this.root ? this.root.maximum() : undefined;
     }
 
-    /*
+    /*TODO search in binary tree
     search(comparator: (data: T) => boolean): T {
-
+        this.BFT();
+        let queue = [this.root];
+        let found: TreeNode = null;
+        while (queue.length > 0) {
+            let currentNode = queue.shift();
+            if (currentNode.value === node) {
+                found = currentNode;
+                break;
+            }
+            if (currentNode.left) {
+                queue.push(currentNode.left);
+            }
+            if (currentNode.right) {
+                queue.push(currentNode.right);
+            }
+        }
+        return found;
     }*/
 }
+
+export default BinarySearchTree;
