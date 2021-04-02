@@ -41,6 +41,15 @@ class LinkedList<T> implements ILinkedList<T> {
         }
     }
 
+    getFirst(): T | undefined {
+        return this.head?.data;
+    }
+
+    getLast(): T {
+        const array = this.traverse();
+        return array[array.length - 1];
+    }
+
     /**
      * Return the first occurrence of the node that validate the comparator search condition
      * @param comparator callback function that return a boolean

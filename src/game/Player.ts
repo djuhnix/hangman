@@ -29,6 +29,10 @@ class Player {
         return this.score.getMaximum();
     }
 
+    equal(player: Player): boolean {
+        return this.id === player.id && this.pseudo === player.pseudo;
+    }
+
     saveScore(sessionId: number, points: number) {
         let score = this.score.search(
             data => {

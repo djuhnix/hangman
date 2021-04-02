@@ -1,3 +1,10 @@
+enum GameState {
+    NOT_STARTED,
+    ONGOING,
+    GAME_OVER,
+    WIN
+}
+
 function initialiseHangmanWordSlot (size: number, value: string): string[] {
     let array = []
     while (size--) array[size] = value
@@ -33,5 +40,6 @@ function formatTime (ms: number) {
 export {
     initialiseHangmanWordSlot,
     charPos,
-    formatTime
+    formatTime,
+    GameState
 }

@@ -1,4 +1,17 @@
 import {DoubleNode} from "./nodes";
+import {PathLike} from "fs";
+import {GameState} from "./utils";
+
+interface GameDetails {
+    progress: string[],
+    hangmanWord: string,
+    gameState: GameState,
+    guessed: string[],
+    missed: string[],
+    chances: number,
+    duration: number,
+    resultFile: PathLike | undefined,
+}
 
 interface ILinkedList<T> {
     insertInBegin(data: T): DoubleNode<T>;
@@ -32,5 +45,6 @@ export {
     ILinkedList,
     IQueue,
     IStack,
-    ICompare
+    ICompare,
+    GameDetails
 }
