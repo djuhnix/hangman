@@ -131,7 +131,7 @@ class Hangman {
             missed: this.data.missed,
             chances: this.data.chances,
             duration: this.data.duration,
-            resultFile: undefined, //TODO resultFile
+            resultFile: undefined,
         }
     }
 }

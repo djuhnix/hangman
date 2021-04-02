@@ -1,11 +1,8 @@
-import LinkedList from "../data/structures/LinkedList";
-import Hangman from "./Hangman";
 import Session from "./Session";
-import {GameDetails} from "../utils/interfaces";
 
 /**
  * Session management
- *
+ * Base game class to extend
  */
 class Games {
     private readonly _session: Session;

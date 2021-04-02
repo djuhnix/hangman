@@ -1,19 +1,33 @@
 {
-  "name": "djuhnix-hangman",
+  "name": "@djuhnix/hangman",
   "version": "1.0.0",
   "description": "Hangman paper and pencil guessing game in a node-js module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/djuhnix/hangman.git"
+  },
   "scripts": {
+    "start": "tsc && node dist/index.js",
     "prepublish": "npm run build",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "djuhnix",
+  "keywords": [
+    "hangman",
+    "game",
+    "djuhnix",
+    "pendu"
+  ],
+  "author": "djuhnix <junior@germain.tech> (germain.tech)",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^14.14.37",
+    "tslint": "^5.12.1",
     "typescript": "^4.2.3"
+  },
+  "engines": {
+    "node": ">=6.0.0"
   }
 }
